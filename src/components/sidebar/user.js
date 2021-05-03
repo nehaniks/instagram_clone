@@ -1,10 +1,10 @@
-import { memo } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import Skeleton from "react-loading-skeleton";
+import { DEFAULT_IMAGE_PATH } from "../../constants/paths";
 
-const User = ({ username, fullName }) =>
-  !username || !fullName ? (
+export default function User({ username, fullName }) {
+  return !username || !fullName ? (
     <Skeleton count={1} height={61} />
   ) : (
     <Link
@@ -15,7 +15,10 @@ const User = ({ username, fullName }) =>
         <img
           className="rounded-full w-16 flex mr-3"
           src={`/images/avatars/${username}.jpg`}
-          alt={username}
+          alt=""
+          onError={(e) => {
+            e.target.src = DEFAULT_IMAGE_PATH;
+          }}
         />
       </div>
       <div className="col-span-3">
@@ -24,8 +27,7 @@ const User = ({ username, fullName }) =>
       </div>
     </Link>
   );
-
-export default memo(User);
+}
 
 User.propTypes = {
   username: PropTypes.string,
