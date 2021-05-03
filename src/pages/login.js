@@ -56,6 +56,7 @@ export default function Login() {
               placeholder="Email address"
               className="text-sm text-gray-base w-full mr-3 py-5 px-4 h-2 border border-gray-primary rounded mb-2"
               onChange={({ target }) => setEmailAddress(target.value)}
+              value={emailAddress}
             />
             <input
               aria-label="Enter your Password"
@@ -63,6 +64,7 @@ export default function Login() {
               placeholder="Password"
               className="text-sm text-gray-base w-full mr-3 py-5 px-4 h-2 border border-gray-primary rounded mb-2"
               onChange={({ target }) => setPassword(target.value)}
+              value={password}
             />
             <button
               disabled={isInvalid}
@@ -71,7 +73,7 @@ export default function Login() {
                 isInvalid && "opacity-50"
               }`}
             >
-              Log In
+              Login
             </button>
           </form>
         </div>
@@ -79,7 +81,7 @@ export default function Login() {
           <p className="text-sm">
             Don't have an account?{` `}
             <Link to={ROUTES.SIGN_UP} className="font-bold text-blue-medium">
-              Sign Up
+              Sign up
             </Link>
           </p>
         </div>
