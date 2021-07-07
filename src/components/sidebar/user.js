@@ -12,14 +12,16 @@ export default function User({ username, fullName }) {
       className="grid grid-cols-4 gap-4 mb-6 items-center"
     >
       <div className="flex items-center justify-between col-span-1">
-        <img
-          className="rounded-full w-16 flex mr-3"
-          src={`/images/avatars/${username}.jpg`}
-          alt=""
-          onError={(e) => {
-            e.target.src = DEFAULT_IMAGE_PATH;
-          }}
-        />
+        <div className="overflow-hidden w-16 h-16">
+          <img
+            className="rounded-full object-fill h-full flex mr-3"
+            src={`/images/avatars/${username}.jpg`}
+            alt=""
+            onError={(e) => {
+              e.target.src = DEFAULT_IMAGE_PATH;
+            }}
+          />
+        </div>
       </div>
       <div className="col-span-3">
         <p className="font-bold text-sm">{username}</p>

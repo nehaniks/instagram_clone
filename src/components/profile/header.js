@@ -56,14 +56,16 @@ export default function Header({
     <div className="grid grid-cols-3 gap-4 justify-between mx-auto max-w-screen-lg">
       <div className="container flex justify-center items-center">
         {profileUsername ? (
-          <img
-            className="rounded-full h-40 w-40 flex"
-            alt={`${fullName} profile picture`}
-            src={`/images/avatars/${profileUsername}.jpg`}
-            onError={(e) => {
-              e.target.src = DEFAULT_IMAGE_PATH;
-            }}
-          />
+          <div className="overflow-hidden w-40 h-40">
+            <img
+              className="rounded-full object-fill h-full flex"
+              alt={`${fullName} profile picture`}
+              src={`/images/avatars/${profileUsername}.jpg`}
+              onError={(e) => {
+                e.target.src = DEFAULT_IMAGE_PATH;
+              }}
+            />
+          </div>
         ) : (
           <Skeleton circle height={150} width={150} count={1} />
         )}

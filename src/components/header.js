@@ -79,14 +79,16 @@ export default function Header() {
                 {user && (
                   <div className="flex items-center cursor-pointer">
                     <Link to={`/p/${user?.username}`}>
-                      <img
-                        className="rounded-full h-8 w-8 flex"
-                        src={`/images/avatars/${user?.username}.jpg`}
-                        alt={`${user?.username} profile`}
-                        onError={(e) => {
-                          e.target.src = DEFAULT_IMAGE_PATH;
-                        }}
-                      />
+                      <div className="overflow-hidden w-8 h-8">
+                        <img
+                          className="rounded-full object-fill h-full flex"
+                          src={`/images/avatars/${user?.username}.jpg`}
+                          alt={`${user?.username} profile`}
+                          onError={(e) => {
+                            e.target.src = DEFAULT_IMAGE_PATH;
+                          }}
+                        />
+                      </div>
                     </Link>
                   </div>
                 )}
