@@ -3,8 +3,8 @@ import Skeleton from "react-loading-skeleton";
 
 export default function Photos({ photos }) {
   return (
-    <div className="h-16 border-t border-gray-primary mt-12 pt-4">
-      <div className="grid grid-cols-3 gap-8 mt-4 mb-12">
+    <div className="h-16 border-t border-gray-primary mt-6 sm:mt-12 pt-4">
+      <div className="grid grid-cols-3 gap-4 md:gap-8 mt-4 mb-12 justify-items-center">
         {!photos
           ? new Array(12)
               .fill(0)
@@ -12,8 +12,12 @@ export default function Photos({ photos }) {
           : photos.length > 0
           ? photos.map((photo) => (
               <div key={photo.docId} className="relative group">
-                <div className="overflow-hidden h-52">
-                  <img src={photo.imageSrc} alt={photo.caption} />
+                <div className="overflow-hidden h-20 sm:h-36 md:h-40 lg:h-44">
+                  <img
+                    src={photo.imageSrc}
+                    alt={photo.caption}
+                    className="object-fill h-full"
+                  />
                 </div>
 
                 <div className="absolute bottom-0 left-0 bg-gray-200 z-10 w-full justify-evenly items-center h-full bg-black-faded group-hover:flex hidden">
@@ -22,7 +26,7 @@ export default function Photos({ photos }) {
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 20 20"
                       fill="currentColor"
-                      className="w-8 mr-4"
+                      className="w-4 sm:w-8 mr-2 sm:mr-4"
                     >
                       <path
                         fillRule="evenodd"
@@ -38,7 +42,7 @@ export default function Photos({ photos }) {
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 20 20"
                       fill="currentColor"
-                      className="w-8 mr-4"
+                      className="w-4 sm:w-8 mr-2 sm:mr-4"
                     >
                       <path
                         fillRule="evenodd"

@@ -53,10 +53,10 @@ export default function Header({
   }, [user?.username, profileUserId]);
 
   return (
-    <div className="grid grid-cols-3 gap-4 justify-between mx-auto max-w-screen-lg">
+    <div className="grid grid-cols-3 gap-2 sm:gap-4 justify-between mx-auto max-w-screen-lg">
       <div className="container flex justify-center items-center">
         {profileUsername ? (
-          <div className="overflow-hidden w-40 h-40">
+          <div className="overflow-hidden w-20 sm:w-40 h-20 sm:h-40">
             <img
               className="rounded-full object-fill h-full flex"
               alt={`${fullName} profile picture`}
@@ -72,7 +72,7 @@ export default function Header({
       </div>
       <div className="flex items-center justify-center flex-col col-span-2">
         <div className="container flex items-center">
-          <p className="text-2xl mr-4">{profileUsername}</p>
+          <p className="text-xl sm:text-2xl mr-4">{profileUsername}</p>
           {activeBtnFollow && isFollowingProfile === null ? (
             <Skeleton count={1} width={80} height={32} />
           ) : (
@@ -97,15 +97,15 @@ export default function Header({
             <Skeleton count={1} width={677} height={24} />
           ) : (
             <>
-              <p className="mr-10">
+              <p className="mr-4 sm:mr-10">
                 <span className="font-bold">{photosCount}</span> photos
               </p>
-              <p className="mr-10">
+              <p className="mr-4 sm:mr-10">
                 <span className="font-bold">{followerCount}</span>
                 {` `}
                 {followerCount === 1 ? `follower` : `followers`}
               </p>
-              <p className="mr-10">
+              <p className="mr-4 sm:mr-10">
                 <span className="font-bold">{following?.length}</span> following
               </p>
             </>

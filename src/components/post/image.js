@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 export default function Image({ src, caption }) {
   return (
-    <div className="overflow-hidden h-96">
+    <div className="overflow-hidden h-full">
       <img src={src} alt={caption} className="object-fill w-full" />
     </div>
   );
